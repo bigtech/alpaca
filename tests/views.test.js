@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { createAlpaca, fixture, loaded } from "./harness.js";
 
-describe.each(["web", "bootstrap"])("views (%s)", (flavor) => {
+describe.each(["web", "bootstrap", "bootstrap5"])("views (%s)", (flavor) => {
     let alpaca, $, render;
 
     beforeEach(() => {
@@ -69,6 +69,74 @@ describe("bootstrap view styling", () => {
         expect($("#form .form-group")).toHaveLength(1);
         expect($("#form input").hasClass("form-control")).toBe(true);
         expect($("#form label").hasClass("control-label")).toBe(true);
+        alpaca.close();
+    });
+});
+
+describe("bootstrap5 view styling", () => {
+    it("applies Bootstrap 5 classes to fields, labels, inputs, selects, and checkboxes", async () => {
+        const alpaca = createAlpaca({ flavor: "bootstrap5" });
+        const { $, render } = alpaca;
+
+        const field = await render({
+            schema: {
+                type: "object",
+                properties: {
+                    name: { type: "string", title: "Name" },
+                    gender: { type: "string", enum: ["m", "f"], title: "Gender" },
+                    subscribe: { type: "boolean", title: "Subscribe", rightLabel: "Yes, subscribe" }
+                },
+                required: ["name"]
+            },
+            options: {
+                fields: {
+                    name: { label: "Full Name", helper: "Enter your full name" },
+                    gender: { type: "select", label: "Gender" },
+                    subscribe: { rightLabel: "Yes, subscribe" }
+                }
+            }
+        });
+
+        // Verifies <div class="mb-3"> exists
+        expect($("#form .mb-3").length).toBeGreaterThan(0);
+
+        // Verifies text inputs receive .form-control
+        expect($("#form input[name='name']").hasClass("form-control")).toBe(true);
+
+        // Verifies select dropdowns receive .form-select
+        expect($("#form select[name='gender']").hasClass("form-select")).toBe(true);
+        expect($("#form select[name='gender']").hasClass("form-control")).toBe(false);
+
+        // Verifies checkboxes receive .form-check and .form-check-input
+        expect($("#form .form-check").length).toBeGreaterThan(0);
+        expect($("#form input[type='checkbox']").hasClass("form-check-input")).toBe(true);
+
+        // Verifies labels receive .form-label
+        expect($("#form label.alpaca-control-label").hasClass("form-label")).toBe(true);
+
+        alpaca.close();
+    });
+
+    it("verifies invalid fields receive .is-invalid", async () => {
+        const alpaca = createAlpaca({ flavor: "bootstrap5" });
+        const { $, render } = alpaca;
+
+        const field = await render({
+            schema: {
+                type: "string",
+                minLength: 5
+            },
+            data: "abc"
+        });
+
+        field.refreshValidationState(true);
+
+        // Control element receives .is-invalid
+        expect($("#form input").hasClass("is-invalid")).toBe(true);
+
+        // Feedback message displays with .invalid-feedback
+        expect($("#form .invalid-feedback").length).toBeGreaterThan(0);
+
         alpaca.close();
     });
 });

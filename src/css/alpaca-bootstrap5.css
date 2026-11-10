@@ -1,0 +1,199 @@
+.alpaca-container-label
+{
+    margin-top: 1.25rem;
+}
+
+legend.alpaca-container-label
+{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.alpaca-array-toolbar.alpaca-array-toolbar-position-top
+{
+    margin-bottom: 0.75rem;
+}
+
+.alpaca-array-toolbar.alpaca-array-toolbar-position-bottom
+{
+    margin-top: 0.75rem;
+}
+
+.alpaca-array-actionbar.alpaca-array-actionbar-top
+{
+    padding-bottom: 0.5rem;
+}
+
+.alpaca-array-actionbar.alpaca-array-actionbar-bottom
+{
+    padding-top: 0.5rem;
+}
+
+.alpaca-array-actionbar.alpaca-array-actionbar-left
+{
+    padding-right: 0.5rem;
+}
+
+.alpaca-array-actionbar.alpaca-array-actionbar-right
+{
+    padding-left: 0.5rem;
+}
+
+.alpaca-array-actionbar, .alpaca-array-actionbar.btn-group
+{
+    width: 100%;
+}
+
+.alpaca-array-actionbar
+{
+    overflow: hidden;
+}
+
+/* Array action bars & item move handles */
+.alpaca-array-item-move
+{
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    cursor: grab;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+.alpaca-array-item-move:hover
+{
+    cursor: move;
+    color: #212529;
+}
+
+.alpaca-array-item-flex-container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.alpaca-array-item-flex-1
+{
+    flex-grow: 1;
+}
+
+/* Fallback SVG / CSS styling for action buttons if icons webfont is not loaded */
+.alpaca-array-actionbar .btn i,
+.alpaca-array-item-move i,
+.chooser-item-buttons .btn i
+{
+    display: inline-block;
+    vertical-align: -0.125em;
+    min-width: 1em;
+    min-height: 1em;
+}
+
+/* Object / Card styling */
+.alpaca-field-object
+{
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.375rem;
+    padding: 1rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+}
+
+.alpaca-display h3
+{
+    margin-top: 0;
+}
+
+.alpaca-field-array
+{
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.375rem;
+    padding: 1rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+}
+
+.alpaca-control-buttons-container
+{
+    margin-top: 0.75rem;
+}
+
+.alpaca-container-item > .alpaca-container > .alpaca-field-object
+{
+    border: 0;
+    padding: 0;
+}
+
+.alpaca-form-buttons-container
+{
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.alpaca-field-hidden
+{
+    display: none;
+}
+
+.alpaca-field-object.alpaca-top,
+.alpaca-field-array.alpaca-top
+{
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.alpaca-container-item:not(:first-child)
+{
+    margin-top: 0.75rem;
+}
+
+.alpaca-container .alpaca-container-item:last-child
+{
+    margin-bottom: 0;
+}
+
+.alpaca-field-object.alpaca-top .alpaca-container
+{
+    border: 0;
+}
+
+.alpaca-field-select .btn-group
+{
+    display: block;
+}
+
+.alpaca-field-select .btn-group button.multiselect
+{
+    float: none;
+}
+
+.alpaca-required-indicator
+{
+    padding-left: 0.375rem;
+    font-style: italic;
+    font-weight: 300;
+    color: #6c757d;
+}
+
+.cursor-pointer
+{
+    cursor: pointer;
+}
+
+.alpaca-field-text-max-length-indicator
+{
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.alpaca-field-text-max-length-indicator.err
+{
+    color: #dc3545;
+}

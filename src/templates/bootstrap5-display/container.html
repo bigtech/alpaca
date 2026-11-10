@@ -1,0 +1,47 @@
+<script type="text/x-handlebars-template">
+
+    <div class="alpaca-container-holder">
+
+        {{#if options.label}}
+        <legend class="{{#if options.labelClass}}{{options.labelClass}} {{/if}}alpaca-container-label">
+
+            {{#if options.collapsible}}
+            <span data-bs-toggle="collapse" class="cursor-pointer">
+            {{/if}}
+
+            {{{options.label}}}
+
+            {{#if options.collapsible}}
+            </span>
+            {{/if}}
+
+        </legend>
+        {{/if}}
+
+        {{#if options.helpers}}
+            {{#compare options.helpersPosition "above"}}
+                {{#each options.helpers}}
+                <div class="alpaca-helper form-text {{#if options.helperClass}}{{options.helperClass}}{{/if}}">
+                    <i class="bi bi-info-circle me-1"></i>
+                    {{#showMessage .}}{{/showMessage}}
+                </div>
+                {{/each}}
+            {{/compare}}
+        {{/if}}
+
+        {{#container}}{{/container}}
+
+        {{#if options.helpers}}
+            {{#compare options.helpersPosition "below"}}
+                {{#each options.helpers}}
+                <div class="alpaca-helper form-text {{#if options.helperClass}}{{options.helperClass}}{{/if}}">
+                    <i class="bi bi-info-circle me-1"></i>
+                    {{#showMessage .}}{{/showMessage}}
+                </div>
+                {{/each}}
+            {{/compare}}
+        {{/if}}
+
+    </div>
+
+</script>

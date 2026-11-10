@@ -1,0 +1,11 @@
+<script type="text/x-handlebars-template">
+
+    <p class="alpaca-control-radio-display form-control-plaintext">
+        {{#each selectOptions}}
+            {{#if selected}}
+                <span class="badge bg-secondary me-1">{{{text}}}</span>
+            {{/if}}
+        {{/each}}
+    </p>
+
+</script>

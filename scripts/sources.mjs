@@ -125,5 +125,23 @@ export const flavors = {
             { name: "bootstrap", global: "Bootstrap", param: "Bootstrap" }
         ],
         defaultView: "bootstrap"
+    },
+    bootstrap5: {
+        views: ["src/js/views/web.js", "src/js/views/bootstrap5.js"],
+        templates: [
+            "web-display", "web-edit", "web-create",
+            "bootstrap5-display", "bootstrap5-edit", "bootstrap5-create"
+        ],
+        styles: [
+            "src/css/alpaca-core.css",
+            "src/css/alpaca-fields.css",
+            "src/css/alpaca-bootstrap5.css"
+        ],
+        deps: [
+            { name: "jquery", global: "jQuery", param: "$" },
+            { name: "handlebars", global: "Handlebars", param: "Handlebars" },
+            { name: "bootstrap", global: "Bootstrap", param: "Bootstrap" }
+        ],
+        defaultView: "bootstrap5"
     }
 };

@@ -1,0 +1,29 @@
+<script type="text/x-handlebars-template">
+
+    {{#if options.multiple}}
+
+        {{#each selectOptions}}
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="{{../id}}_{{@index}}" data-checkbox-index="{{@index}}" data-checkbox-value="{{value}}" {{#if selected}}checked{{/if}} {{#if ../options.readonly}}readonly="readonly"{{/if}} {{#if name}}name="{{name}}"{{/if}} {{#each ../options.data}}data-{{@key}}="{{value}}"{{/each}}/>
+                <label class="form-check-label" for="{{../id}}_{{@index}}">
+                    {{{text}}}
+                </label>
+            </div>
+
+        {{/each}}
+
+    {{else}}
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="{{id}}" {{#if data.length}}checked{{/if}} {{#if options.readonly}}readonly="readonly"{{/if}} {{#if name}}name="{{name}}"{{/if}} {{#each options.data}}data-{{@key}}="{{value}}"{{/each}}/>
+            {{#if options.rightLabel}}
+                <label class="form-check-label" for="{{id}}">
+                    {{{options.rightLabel}}}
+                </label>
+            {{/if}}
+        </div>
+
+    {{/if}}
+
+</script>
