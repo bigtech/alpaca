@@ -1,0 +1,48 @@
+{
+  "name": "alpaca",
+  "description": "Alpaca provides the easiest way to generate web forms on top of JSON Schema, jQuery and Bootstrap.",
+  "version": "2.0.1",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gitana/alpaca.git"
+  },
+  "main": "dist/alpaca/bootstrap/alpaca.js",
+  "files": [
+    "dist/alpaca",
+    "src",
+    "thirdparty",
+    "license.txt",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "test": "node scripts/build.mjs && vitest run",
+    "test:watch": "vitest",
+    "bench": "node scripts/build.mjs && node --no-warnings scripts/bench.mjs",
+    "dev": "node scripts/dev.mjs",
+    "site": "node scripts/site-deps.mjs && node scripts/build.mjs && eleventy",
+    "site:install": "node scripts/site-deps.mjs --force",
+    "docs:api": "jsdoc -c jsdoc.conf.json -r src/js README.md -d build/jsdoc",
+    "lint": "jshint src/js",
+    "clean": "node -e \"for (const d of ['build','dist']) require('fs').rmSync(d,{recursive:true,force:true})\"",
+    "bump": "npm version patch --no-git-tag-version"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "esbuild": "^0.28.2",
+    "handlebars": "^4.7.10",
+    "jquery": "^3.7.1",
+    "jsdoc": "^4.0.4",
+    "jsdom": "^26.1.0",
+    "jshint": "^2.13.6",
+    "vitest": "^5.0.3"
+  },
+  "overrides": {
+    "jshint": {
+      "lodash": "^4.18.1",
+      "minimatch": "^3.1.5"
+    }
+  }
+}

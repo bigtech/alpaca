@@ -1,0 +1,17 @@
+# Dependencies & build outputs
+node_modules/
+dist/
+build/
+
+# Ignore non-code assets and untracked directories
+site/
+thirdparty/
+.vscode/
+deploy.log
+*.iml
+*.ipr
+*.iws
+.idea/
+src/messages/
+src/templates/web-edit/
+src/js/

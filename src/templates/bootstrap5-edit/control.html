@@ -1,0 +1,45 @@
+<script type="text/x-handlebars-template">
+
+    <div class="mb-3">
+
+        {{#if options.label}}
+        <label class="{{#if options.labelClass}}{{options.labelClass}}{{/if}} form-label alpaca-control-label" for="{{id}}">{{{options.label}}}</label>
+        {{/if}}
+
+        {{#if options.helpers}}
+            {{#compare options.helpersPosition "above"}}
+                {{#each options.helpers}}
+                <div class="form-text {{#if options.helperClass}}{{options.helperClass}}{{/if}}">
+                    <i class="bi bi-info-circle me-1"></i>
+                    {{#showMessage .}}{{/showMessage}}
+                </div>
+                {{/each}}
+            {{/compare}}
+        {{/if}}
+
+        {{#control}}{{/control}}
+
+        {{#if options.helpers}}
+            {{#compare options.helpersPosition "below"}}
+                {{#each options.helpers}}
+                    <div class="form-text {{#if options.helperClass}}{{options.helperClass}}{{/if}}">
+                        <i class="bi bi-info-circle me-1"></i>
+                        {{#showMessage .}}{{/showMessage}}
+                    </div>
+                {{/each}}
+            {{/compare}}
+        {{/if}}
+
+        {{#if options.renderButtons}}
+            {{#if options.buttons}}
+            <div class="alpaca-control-buttons-container mt-2">
+                {{#each options.buttons}}
+                <button data-key="{{@key}}" type="{{type}}" class="alpaca-control-button alpaca-control-button-{{@key}} {{styles}}" {{#each value}}{{@key}}="{{value}}" {{/each}}>{{{value}}}</button>
+                {{/each}}
+            </div>
+            {{/if}}
+        {{/if}}
+
+    </div>
+
+</script>
